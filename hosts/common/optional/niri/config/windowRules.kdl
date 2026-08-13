@@ -1,0 +1,167 @@
+// ────────────── Window Rules ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
+
+window-rule { // active windows when in overview
+    match is-focused=false is-active=true
+    shadow {
+        on
+        draw-behind-window false
+        softness 40
+        spread 2
+        offset x=0 y=0
+    }
+}
+window-rule { // reset focused window settings when leaving overview
+    match is-focused=true
+    shadow {
+        off
+    }
+}
+window-rule {
+    match is-active=false
+    shadow {
+        off
+    }
+}
+
+// Indicate screencasted windows with red colors.
+window-rule {
+    match is-window-cast-target=true
+
+    focus-ring {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+
+    border {
+        inactive-color "#7d0d2d"
+    }
+
+    shadow {
+        color "#7d0d2d70"
+    }
+
+    tab-indicator {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+}
+
+window-rule {
+    match app-id=r#"firefox$"#
+    
+    popups {
+        opacity 0.5
+
+        background-effect {
+            blur true
+            xray false
+        }
+    }
+}
+
+window-rule {
+    match app-id=r#"firefox$"#
+
+    popups {
+        geometry-corner-radius 17 // makes the autoscroll widget's surface circular
+    }
+}
+
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true // Always float Firefox PiP windows
+}
+
+//  Zen Browser
+window-rule {
+    match app-id=r#"zen$"#
+    focus-ring {
+        off
+    }
+}
+window-rule {   //  not focused
+    match app-id=r#"zen$"# is-active=false
+    shadow {
+        off
+    }
+}
+window-rule {   //  focused
+    match app-id=r#"zen$"# is-focused=true
+    shadow {
+        on
+        softness 7
+        spread 3
+        offset x=0 y=0
+    }
+}
+window-rule {   //in overview
+    match app-id=r#"zen$"# is-active=true
+    exclude is-focused=true
+    //  rest inherited from overview shadow
+}
+
+window-rule {
+    match title=r#"surge$"#
+    default-column-width { proportion 0.7; }
+    min-width 1152 // = 60% * 1920, won't properly render at lower width
+}
+
+window-rule {
+    match app-id=r#"vicinae$"#
+
+    focus-ring { off; }
+    shadow { off; }
+    background-effect { xray false; }
+}
+
+layer-rule {
+    match namespace=r#"vicinae$"#
+    
+    background-effect { xray false; }
+}
+
+window-rule {
+    match app-id=r#"waypaper"#
+    open-floating true
+}
+window-rule {
+    match app-id=r#"spotify"#
+    open-floating true
+    default-column-width { fixed 1000; }
+    default-window-height { fixed 800; }
+}
+
+window-rule {
+    match app-id=r#"wezterm"#
+
+    background-effect { blur true; }
+    focus-ring { active-color "#ffffff39"; }
+}
+
+window-rule {
+    geometry-corner-radius 0 // Set every window radius to 20
+    clip-to-geometry true
+}
+
+layer-rule {
+    match namespace="^noctalia"
+    place-within-backdrop true
+}
+
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=0 y=0 relative-to="bottom-right"
+    open-focused false
+}
+
+// window-rule {
+//     match app-id=r#"MuseScore"#
+//     match title=r#"Tux Manager"#
+//     match app-id="steam"
+
+//     popups {
+//         opacity 1.0
+//         background-effect { blur false; xray false; }
+//     }
+// }

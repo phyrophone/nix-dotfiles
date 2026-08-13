@@ -1,0 +1,153 @@
+// Niri configuration for CachyOS
+// For documentation and full reference, see: https://github.com/YaLTeR/niri/wiki
+
+include "keybinds.kdl"
+include "windowRules.kdl"
+
+// ────────────── Startup Applications ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#spawn-sh-at-startup
+
+    spawn-at-startup "noctalia"
+    spawn-at-startup "vicinae" "server"
+    spawn-at-startup "spotifyd"
+    // spawn-at-startup "xwayland-satellite" // builtin xwayland option doesn't work
+
+    spawn-at-startup "vesktop"
+
+    prefer-no-csd // Disable program decorations
+
+// ────────────── Layout Settings ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
+
+    layout {
+
+        center-focused-column "never" // Don’t auto-center focused column
+        always-center-single-column
+
+        preset-column-widths {
+            proportion 0.33333
+            proportion 0.5
+            proportion 0.66667
+            proportion 0.8
+            
+        }
+        preset-window-heights {
+            proportion 0.33333
+            proportion 0.5
+            proportion 0.66667
+            proportion 1.0
+        }
+
+        focus-ring {
+            width 2
+            active-color "#00ac89"
+            inactive-color "#505050"
+        }
+        border { // for transparent windows
+            off
+
+            width 2
+            active-color "#00ac89"
+            inactive-color "#505050"
+        }
+
+        shadow {
+            softness 30
+            spread 5
+            offset x=0 y=0
+            color "#0007"
+        }
+        gaps 20 // Gap between windows
+        struts {
+            left 25
+            right 25
+            top -10
+            bottom -10
+        }
+
+        background-color "transparent"
+    }
+
+    overview {
+        zoom 0.4
+    }
+
+    blur {
+        passes 3
+        offset 1.5
+        noise 0.02
+        saturation 1.5
+
+    }
+
+// ────────────── Animation Settings ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
+    animations {
+        workspace-switch {
+            spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+        }
+        window-open {
+            duration-ms 200
+            curve "ease-out-quad"
+        }
+        window-close {
+            duration-ms 200
+            curve "ease-out-cubic"
+        }
+        horizontal-view-movement {
+            spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
+        }
+        window-movement {
+            spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+        }
+        window-resize {
+            spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+        }
+        config-notification-open-close {
+            spring damping-ratio=0.6 stiffness=1200 epsilon=0.001
+        }
+        screenshot-ui-open {
+            duration-ms 300
+            curve "ease-out-quad"
+        }
+        overview-open-close {
+            spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
+        }
+    }
+
+// ────────────── Environment Variables ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#environment
+
+    environment {
+        // DISPLAY ":1"
+        ELECTRON_OZONE_PLATFORM_HINT "auto"
+        QT_QPA_PLATFORM "wayland"
+        QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+        XDG_SESSION_TYPE "wayland"
+        XDG_CURRENT_DESKTOP "niri"
+
+        QS_ICON_THEME "breeze"
+    }
+
+    hotkey-overlay {
+        skip-at-startup
+    }
+
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+// disables middle mouse button paste
+clipboard {
+    disable-primary
+}
+
+cursor {
+    xcursor-theme "volantes_cursors"
+    xcursor-size 24
+    hide-after-inactive-ms 60000 // 60 000 ms = 1 min
+}
+
+// include "niri-colors.kdl"

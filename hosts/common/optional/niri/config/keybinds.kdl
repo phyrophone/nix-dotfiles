@@ -1,0 +1,176 @@
+// ────────────── Input Configuration ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Input
+
+input {
+    keyboard {
+        xkb {
+            layout "se"
+        }
+        numlock // Enable numlock on startup
+    }
+
+    touchpad {
+        tap // Enable tap-to-click
+        natural-scroll // Enable natural (macOS-style) scrolling
+    }
+
+    focus-follows-mouse // Automatically focus windows under the mouse pointer
+    workspace-auto-back-and-forth // Enable workspace back & forth switching
+}
+
+// ────────────── Output Configuration ──────────────
+// You can run `niri msg outputs` to get the correct name for your displays.
+// You will have to remove "/-" and edit it before it takes effect.
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
+
+/- output "DP-1" {
+    mode "2560x1440@359.979" // Set resolution and refresh rate
+    scale 1 // No scaling (use 2 for HiDPI)
+}
+
+// ────────────── Keybindings ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
+
+binds {
+    MOD+SHIFT+ESCAPE                    { show-hotkey-overlay; }
+    MOD+H                               { show-hotkey-overlay; }
+
+    // ─── Exit / Power ───
+    MOD+SHIFT+E                         { quit; } // Also quits Niri
+    ALT+F4                              { spawn-sh "vicinae vicinae://launch/power/power-off"; } // Also quits Niri
+    MOD+F4                              { spawn-sh "vicinae vicinae://launch/power/power-off"; }
+    MOD+SHIFT+P                         { power-off-monitors; } // Turn off screens (useful for OLED or privacy)
+
+    // Overview
+    MOD+O                               repeat=false { toggle-overview; }
+    MOD+Less                            repeat=false { toggle-overview; }
+
+    // ─── Menu ───
+
+    // ─── Applications ───
+    MOD+RETURN                          repeat=false hotkey-overlay-title="Open Terminal" { spawn-sh "wezterm-gui"; }
+    MOD+SPACE                           repeat=false hotkey-overlay-title="Open Vicinae" { spawn-sh "vicinae toggle"; }
+    MOD+B                               repeat=false hotkey-overlay-title="Open Browser" { spawn-sh "firefox"; }
+    MOD+L                               repeat=false hotkey-overlay-title="Lock Screen" { spawn-sh "noctalia msg session lock"; }
+    MOD+E                               repeat=false hotkey-overlay-title="File Manager" { spawn-sh "nautilus --new-window"; }
+    MOD+V                               repeat=false hotkey-overlay-title="Open Vscode" { spawn-sh "codium"; };
+
+    // ─── Audio Controls ───
+    Mod+P                               repeat=false hotkey-overlay-title="Pause/Play" { spawn-sh "playerctl play-pause --ignore-player=firefox"; }
+    MOD+M                               repeat=false hotkey-overlay-title="Open Spotify" { spawn "spotify"; }
+    // Example volume keys mappings for PipeWire & WirePlumber.
+    // The allow-when-locked=true property makes them work even when the session is locked.
+    XF86AudioRaiseVolume                allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
+    SHIFT+XF86AudioRaiseVolume          allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
+    XF86AudioLowerVolume                allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    SHIFT+XF86AudioLowerVolume          allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
+    XF86AudioMute                       allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute                    allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    XF86AudioNext                       allow-when-locked=true { spawn-sh "playerctl next"; }
+    XF86AudioPause                      allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    SHIFT+F8                            { spawn-sh "vicinae vicinae://launch/@dagimg-dot/player-pilot/player-pilot"; }
+    XF86AudioPlay                       allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioPrev                       allow-when-locked=true { spawn-sh "playerctl previous"; }
+
+    // ─── Window Movement and Focus ───
+    MOD+Q                               repeat=false { close-window; }
+
+    // focus window
+    MOD+LEFT                            { focus-column-left; }
+    MOD+SHIFT+LEFT                      { focus-column-left; }
+    MOD+RIGHT                           { focus-column-right; }
+    MOD+SHIFT+RIGHT                     { focus-column-right; }
+    MOD+SHIFT+UP                        { focus-window-up; }
+    MOD+SHIFT+DOWN                      { focus-window-down; }
+
+    MOD+SHIFT+WHEELSCROLLDOWN           cooldown-ms=100 { focus-column-right; }
+    MOD+SHIFT+WHEELSCROLLUP             cooldown-ms=100 { focus-column-left; }
+
+    MOD+HOME                            { focus-column-first; }
+    MOD+END                             { focus-column-last; }
+
+    // move window
+    MOD+CTRL+LEFT                       { move-column-left; }
+    MOD+CTRL+H                          { move-column-left; }
+    MOD+CTRL+RIGHT                      { move-column-right; }
+    MOD+CTRL+L                          { move-column-right; }
+    MOD+CTRL+UP                         { move-window-up; }
+    MOD+CTRL+K                          { move-window-up; }
+    MOD+CTRL+DOWN                       { move-window-down; }
+    MOD+CTRL+J                          { move-window-down; }
+
+    MOD+CTRL+HOME                       { move-column-to-first; }
+    MOD+CTRL+END                        { move-column-to-last; }
+
+    // ─── Workspace Switching ───
+    MOD+WHEELSCROLLDOWN                 cooldown-ms=150 { focus-workspace-down; }
+    MOD+WHEELSCROLLUP                   cooldown-ms=150 { focus-workspace-up; }
+    MOD+DOWN                            cooldown-ms=110{ focus-workspace-down; }
+    MOD+UP                              cooldown-ms=110{ focus-workspace-up; }
+    MOD+CTRL+WHEELSCROLLDOWN            cooldown-ms=150 { move-column-to-workspace-down; }
+    MOD+CTRL+WHEELSCROLLUP              cooldown-ms=150 { move-column-to-workspace-up; }
+    MOD+SHIFT+CTRL+DOWN                 cooldown-ms=300{ move-column-to-workspace-down; }
+    MOD+SHIFT+CTRL+UP                   cooldown-ms=300{ move-column-to-workspace-up; }
+
+    MOD+1                               { focus-workspace 1; }
+    MOD+2                               { focus-workspace 2; }
+    MOD+3                               { focus-workspace 3; }
+    MOD+4                               { focus-workspace 4; }
+    MOD+5                               { focus-workspace 5; }
+    MOD+6                               { focus-workspace 6; }
+    MOD+7                               { focus-workspace 7; }
+    MOD+8                               { focus-workspace 8; }
+    MOD+9                               { focus-workspace 9; }
+
+    MOD+TAB                             { focus-workspace-previous; }
+
+    // rearrange workspaces
+    MOD+PAGE_DOWN                 repeat=false { move-workspace-down; }
+    MOD+PAGE_UP                   repeat=false { move-workspace-up; }
+    MOD+INSERT                    repeat=false { spawn-sh "~/.config/niri/scripts/insertWorkspace.sh"; }
+
+    // move window to other workspace
+    MOD+CTRL+1                          { move-column-to-workspace 1; }
+    MOD+CTRL+2                          { move-column-to-workspace 2; }
+    MOD+CTRL+3                          { move-column-to-workspace 3; }
+    MOD+CTRL+4                          { move-column-to-workspace 4; }
+    MOD+CTRL+5                          { move-column-to-workspace 5; }
+    MOD+CTRL+6                          { move-column-to-workspace 6; }
+    MOD+CTRL+7                          { move-column-to-workspace 7; }
+    MOD+CTRL+8                          { move-column-to-workspace 8; }
+    MOD+CTRL+9                          { move-column-to-workspace 9; }
+
+    // ─── Layout Controls ───
+    //  Fullscreen
+    //  ISO_Level3_Shift = AltGr
+    MOD+F                                   repeat=false { maximize-column; }           //  With shell, akin to set-column-width "100%"
+    MOD+SHIFT+F                             { expand-column-to-available-width;}        //  With shell, fill unused space. ISO_Level3_Shift = AltGr
+    MOD+ISO_Level3_Shift+F                  repeat=false { maximize-window-to-edges; }  //  With shell, to edges
+    MOD+ISO_Level3_Shift+SHIFT+F            repeat=false { fullscreen-window; }         //  No shell
+
+    //  Manual
+    //      Width
+    MOD+PERIOD                          cooldown-ms=80 { set-column-width "+10%"; }
+    MOD+COMMA                           cooldown-ms=80 { set-column-width "-10%"; }
+    //      Height
+    MOD+SHIFT+PERIOD                    cooldown-ms=80 { set-window-height "+10%"; }
+    MOD+SHIFT+COMMA                     cooldown-ms=80 { set-window-height "-10%"; }
+    //  Presets
+    MOD+MINUS                           cooldown-ms=200 { switch-preset-column-width; }
+    MOD+SHIFT+MINUS                     cooldown-ms=200 { switch-preset-window-height; }
+    //  Misc
+    MOD+SHIFT+CTRL+MINUS                { set-window-width "50%"; }
+    MOD+C                               { center-column; }
+    MOD+T                               repeat=false { toggle-window-floating; }
+
+    // ─── Screenshots ───
+    CTRL+SHIFT+1                        { screenshot; }
+    MOD+SHIFT+4                         { screenshot; }
+    CTRL+SHIFT+2                        repeat=false { screenshot-screen; }
+    CTRL+SHIFT+3                        repeat=false { screenshot-window; }
+
+    // ─── Emergency Escape Key ───
+    // Use this when a fullscreen app blocks your keybinds.
+    // It disables any active keyboard shortcut inhibitor, restoring control.
+    MOD+ESCAPE                          allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+}
