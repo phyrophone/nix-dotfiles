@@ -9,6 +9,6 @@
   nixpkgs.overlays = [ inputs.niri.overlays.niri ];
   programs.nh = {
     enable = true;
-    flake = "~/Documents/nixos";
+    flake = "/home/zephyr/Documents/nixos";
   };
 }
