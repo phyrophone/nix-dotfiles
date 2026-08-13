@@ -1,9 +1,10 @@
-{ config, lib, pkgs, hjem, ... }:
+{  pkgs, ... }:
 {
     imports = [
         ./preservation.nix
         ./core/nix.nix
         ./core/helix.nix
+        ./core/shell.nix
     ];
 
     hjem.users.zephyr = {

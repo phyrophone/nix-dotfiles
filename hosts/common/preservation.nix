@@ -27,17 +27,15 @@
       # Preserve user files
       users.zephyr = {
         directories = [
-        "Documents"
-        ".config/mozilla"
+          "Documents"
+          ".config/mozilla"
+          ".config/spotify"
         ];
-          files = [];
+        files = [ ];
       };
     };
   };
 
-  # systemd.tmpfiles.rules = [
-  #   "d /tmp 1777 root root - -"
-  # ];
   systemd.tmpfiles.settings = {
     "preservation"."/tmp".d = {
       group = "root";

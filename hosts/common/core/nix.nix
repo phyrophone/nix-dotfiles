@@ -1,4 +1,4 @@
-{ lib, inputs, config, ... }:
+{ lib, inputs, ... }:
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -7,4 +7,8 @@
   ];
   
   nixpkgs.overlays = [ inputs.niri.overlays.niri ];
+  programs.nh = {
+    enable = true;
+    flake = "~/Documents/nixos";
+  };
 }

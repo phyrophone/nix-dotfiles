@@ -18,7 +18,7 @@
         isNormalUser = true;
         initialPassword = "1234";
         extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-        packages = with pkgs; [ ];
+        shell = pkgs.fish;
     };
 
     system.stateVersion = "26.05"; # Did you read the comment?
