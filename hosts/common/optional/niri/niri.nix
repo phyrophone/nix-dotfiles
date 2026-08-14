@@ -12,11 +12,8 @@
   };
 
   environment.systemPackages = with pkgs; [ wl-clipboard xwayland-satellite ];
-  hjem.users.zephyr = {
-    files = {
-      ".config/niri" = {
-        source = "/home/zephyr/Documents/nixos/hosts/common/optional/niri/config";
-      };
-    };
+  hjem.users.zephyr.xdg = {
+    config.files."niri".source = "/home/zephyr/Documents/nixos/hosts/common/optional/niri/config";
+    data.files."icons/volantes_cursors".source = "${pkgs.volantes-cursors}/share/icons/volantes_cursors";
   };
 }
