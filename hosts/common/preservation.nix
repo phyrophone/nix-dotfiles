@@ -36,7 +36,7 @@
           ".local/share/Steam"
         ];
         files = [
-        ".local/share/fish/fish_history"
+          ".local/share/fish/fish_history"
         ];
       };
     };
