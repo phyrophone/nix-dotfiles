@@ -30,6 +30,7 @@
           "Documents"
           ".config/mozilla"
           ".config/spotify"
+          ".local/share/Steam"
         ];
         files = [ ];
       };
