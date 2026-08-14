@@ -28,6 +28,9 @@
       users.zephyr = {
         directories = [
           "Documents"
+          "Pictures"
+          "Music"
+                    
           ".config/mozilla"
           ".config/spotify"
           ".local/share/Steam"
