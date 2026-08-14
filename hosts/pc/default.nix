@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
     imports = [
         ./disko.nix
@@ -15,9 +15,11 @@
     boot.loader.limine.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
 
+    users.users.root.hashedPassword = config.users.users.zephyr.hashedPassword;
+
     users.users.zephyr = {
         isNormalUser = true;
-        initialPassword = "1234";
+        hashedPassword = "$6$Oph6iIxRn1MHrRIE$RufUKZ9Blc5MtrUup9QmkDU1DK/l53poCZi2/ZbAbsqY0050UmSwStvZ5p5eY/UE4c8vEHzOdb1MZBwH9i.Fx.";
         extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
         shell = pkgs.fish;
     };
