@@ -35,7 +35,9 @@
           ".config/spotify"
           ".local/share/Steam"
         ];
-        files = [ ];
+        files = [
+        ".local/share/fish/fish_history"
+        ];
       };
     };
   };
