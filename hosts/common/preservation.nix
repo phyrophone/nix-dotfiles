@@ -34,6 +34,7 @@
           ".config/mozilla"
           ".config/spotify"
           ".local/share/Steam"
+          ".local/share/keyrings"
         ];
         files = [
           ".local/share/fish/fish_history"
