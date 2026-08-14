@@ -26,12 +26,12 @@
   };  
 
   environment.shellAliases = {
-    la="eza -al --color=always --group-directories-first --icons --hyperlink";  # all files and dirs
-    ls="eza -al --color=always --group-directories-first --icons --no-user --no-permissions --hyperlink"; # preferred listing
-    lss="eza -l --color=always --group-directories-first --icons --no-user --no-permissions --no-time --no-filesize --hyperlink";  # simple
-    lt="eza -aT --color=always --group-directories-first --icons --hyperlink"; # tree listing
+    la="eza -al --color=always --group-directories-first --icons --hyperlink auto";  # all files and dirs
+    ls="eza -al --color=always --group-directories-first --icons --no-user --no-permissions --hyperlink auto"; # preferred listing
+    lss="eza -l --color=always --group-directories-first --icons --no-user --no-permissions --no-time --no-filesize --hyperlink auto";  # simple
+    lt="eza -aT --color=always --group-directories-first --icons --hyperlink auto"; # tree listing
     tree="lt";
-    "l."="eza -al --ignore-glob '[!.]*' --color=always --group-directories-first --icons=always --hyperlink"; # show only dotfiles
+    "l."="eza -al --ignore-glob '[!.]*' --color=always --group-directories-first --icons=always --hyperlink auto"; # show only dotfiles
     lc="l.";
   };
 
