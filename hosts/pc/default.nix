@@ -10,6 +10,7 @@
         ./../common/optional/vicine.nix
         ./../common/optional/git.nix
         ./../common/optional/games.nix
+        ./../common/optional/wezterm/wezterm.nix
     ];
 
     boot.loader.limine.enable = true;

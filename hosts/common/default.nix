@@ -25,6 +25,16 @@
         git
         alacritty
         kdePackages.kate
-        wezterm
+    ];
+
+    fonts.packages = with pkgs; [
+        nerd-fonts.symbols-only
+        fira-code
+        
+        # (google-fonts.overrideAttrs {
+        #     fonts = [
+                
+        #     ];
+        # })
     ];
 }
