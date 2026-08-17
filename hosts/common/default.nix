@@ -5,6 +5,7 @@
         ./core/nix.nix
         ./core/helix.nix
         ./core/shell.nix
+        ./core/xdg-vars.nix
     ];
 
     hjem.users.zephyr = {
