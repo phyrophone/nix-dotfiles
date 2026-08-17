@@ -33,9 +33,12 @@
                     
           ".config/mozilla"
           ".config/spotify"
-          
+          ".config/noctalia"
+
           ".local/share/Steam"
           ".local/share/keyrings"
+
+          ".local/state/noctalia"
 
           ".cache/spotify"
         ];
