@@ -5,6 +5,7 @@
     
     # LSP
     nil # nix
+    clang clang-tools # cpp
     # Formatter
     alejandra # nix
   ];
