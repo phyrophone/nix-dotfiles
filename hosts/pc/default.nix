@@ -11,6 +11,7 @@
         ./../common/optional/git.nix
         ./../common/optional/games.nix
         ./../common/optional/wezterm/wezterm.nix
+        ./../common/optional/vscode.nix
     ];
 
     boot.loader.limine.enable = true;
