@@ -13,6 +13,7 @@
         ./../common/optional/wezterm/wezterm.nix
         ./../common/optional/vscode.nix
         ./../common/optional/vesktop.nix
+        ./../common/optional/direnv.nix
     ];
 
     boot.loader.limine.enable = true;
