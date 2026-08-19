@@ -145,8 +145,13 @@ window-rule {
 }
 
 layer-rule {
-    match namespace="^noctalia"
+    match namespace="^noctalia-wallpaper"
     place-within-backdrop true
+
+    background-effect {
+        xray false
+        blur false
+    }
 }
 
 window-rule {
