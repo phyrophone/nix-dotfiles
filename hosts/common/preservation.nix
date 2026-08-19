@@ -30,9 +30,10 @@
           "Documents"
           "Pictures"
           "Music"
-                    
+
           ".config/mozilla"
           ".config/spotify"
+          ".config/vesktop"
           ".config/noctalia"
 
           ".local/share/Steam"
