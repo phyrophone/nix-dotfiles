@@ -6,6 +6,7 @@
     # LSP
     nil # nix
     clang clang-tools # cpp
+    fish-lsp
     # Formatter
     alejandra # nix
   ];
