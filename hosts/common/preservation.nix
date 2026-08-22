@@ -31,6 +31,8 @@
           "Pictures"
           "Music"
 
+          ".paradoxlauncher"
+
           ".config/mozilla"
           ".config/spotify"
           ".config/vesktop"
@@ -39,6 +41,7 @@
           ".local/share/Steam"
           ".local/share/keyrings"
           ".local/share/direnv"
+          ".local/share/Paradox Interactive"
 
           ".local/state/noctalia"
 
