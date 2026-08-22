@@ -38,6 +38,7 @@
 
           ".local/share/Steam"
           ".local/share/keyrings"
+          ".local/share/direnv"
 
           ".local/state/noctalia"
 
