@@ -27,10 +27,10 @@
 
   environment.shellAliases = {
     la="eza -al --color=always --group-directories-first --icons --hyperlink auto";  # all files and dirs
-    ls="eza -al --color=always --group-directories-first --icons --no-user --no-permissions --hyperlink auto"; # preferred listing
+    ls="eza -al --color=always --group-directories-first --icons --no-user --no-permissions --short-nix --hyperlink auto"; # preferred listing
     lss="eza -l --color=always --group-directories-first --icons --no-user --no-permissions --no-time --no-filesize --hyperlink auto";  # simple
-    lt="eza -aT --color=always --group-directories-first --icons --hyperlink auto"; # tree listing
-    tree="lt";
+    tree="eza -aT --color=always --group-directories-first --icons --hyperlink auto"; # tree listing
+    lt="tree --git-ignore";
     "l."="eza -al --ignore-glob '[!.]*' --color=always --group-directories-first --icons=always --hyperlink auto"; # show only dotfiles
     lc="l.";
   };
