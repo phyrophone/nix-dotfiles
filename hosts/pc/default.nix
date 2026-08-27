@@ -19,6 +19,8 @@
   boot.loader.limine.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
+
   users.users.root.hashedPassword = config.users.users.zephyr.hashedPassword;
 
   users.users.zephyr = {

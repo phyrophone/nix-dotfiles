@@ -6,8 +6,15 @@
     "spotify"
     "steam" "steam-unwrapped"
   ];
+
+  nix.settings.substituters = [ "https://attic.xuyh0120.win/lantian" /* cachyos */ ];
+  nix.settings.trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" /* cachyos */ ];
   
-  nixpkgs.overlays = [ inputs.niri.overlays.niri ];
+  nixpkgs.overlays = [
+    inputs.niri.overlays.niri
+    inputs.nix-cachyos-kernel.overlays.pinned
+  ];
+
   programs.nh = {
     enable = true;
     flake = "/home/zephyr/Documents/nixos";
