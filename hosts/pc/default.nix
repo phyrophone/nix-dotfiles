@@ -3,17 +3,16 @@
   imports = [
     ./disko.nix
     ./hardware-configuration.nix
+    
     ./../common/default.nix
-    ./../common/optional/niri/niri.nix
-    ./../common/optional/firefox.nix
-    ./../common/optional/music.nix
-    ./../common/optional/vicine.nix
-    ./../common/optional/git.nix
-    ./../common/optional/games.nix
-    ./../common/optional/wezterm/wezterm.nix
-    ./../common/optional/vscode.nix
-    ./../common/optional/vesktop.nix
-    ./../common/optional/direnv.nix
+    ./../common/niri/niri.nix
+    ./../common/firefox.nix
+    ./../common/entertainment/games.nix
+    ./../common/entertainment/vesktop.nix
+    ./../common/entertainment/music.nix
+    ./../common/wezterm/wezterm.nix
+    ./../common/vscode.nix
+    ./../common/direnv.nix
   ];
 
   boot.loader.limine.enable = true;
