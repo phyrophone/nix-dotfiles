@@ -23,6 +23,8 @@
 
   users.users.root.hashedPassword = config.users.users.zephyr.hashedPassword;
 
+  networking.hostName = "pc";
+
   users.users.zephyr = {
     isNormalUser = true;
     hashedPassword = "$6$Oph6iIxRn1MHrRIE$RufUKZ9Blc5MtrUup9QmkDU1DK/l53poCZi2/ZbAbsqY0050UmSwStvZ5p5eY/UE4c8vEHzOdb1MZBwH9i.Fx.";
