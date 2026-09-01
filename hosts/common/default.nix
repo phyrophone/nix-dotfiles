@@ -1,7 +1,6 @@
 {  pkgs, ... }:
 {
     imports = [
-        ./preservation.nix
         ./core/nix.nix
         ./core/helix.nix
         ./core/shell.nix
@@ -9,13 +8,11 @@
         ./core/git.nix
     ];
 
-    hjem.users.zephyr = {
-        user = "zephyr";
-        directory = "/home/zephyr";
-        enable = true;
-    };
+    boot.loader.limine.enable = true;
+    boot.loader.efi.canTouchEfiVariables = true;
 
     time.timeZone = "Europe/Stockholm";
+    console.keyMap = "sv-latin1";
 
     networking.networkmanager.enable = true;
 
@@ -24,17 +21,10 @@
         nano
         git
         alacritty
-        kdePackages.kate
     ];
 
     fonts.packages = with pkgs; [
         nerd-fonts.symbols-only
         fira-code
-        
-        # (google-fonts.overrideAttrs {
-        #     fonts = [
-                
-        #     ];
-        # })
     ];
 }

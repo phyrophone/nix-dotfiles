@@ -19,16 +19,25 @@
   };
 
   outputs = inputs: {
-    nixosConfigurations.pc = inputs.nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./hosts/pc/default.nix
-        inputs.disko.nixosModules.disko
-        inputs.preservation.nixosModules.default
-        inputs.hjem.nixosModules.default
-        inputs.niri.nixosModules.niri
-      ];
-      specialArgs = { inherit inputs; };
+    nixosConfigurations = {
+      pc = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/pc/default.nix
+          inputs.disko.nixosModules.disko
+          inputs.preservation.nixosModules.default
+          inputs.hjem.nixosModules.default
+          inputs.niri.nixosModules.niri
+        ];
+        specialArgs = { inherit inputs; };
+      };
+      server = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/server/default.nix
+        ];
+        specialArgs = { inherit inputs; };
+      };
     };
   };
 }

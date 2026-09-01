@@ -15,8 +15,5 @@
     inputs.nix-cachyos-kernel.overlays.pinned
   ];
 
-  programs.nh = {
-    enable = true;
-    flake = "/home/zephyr/Documents/nixos";
-  };
+  programs.nh.enable = true;
 }
