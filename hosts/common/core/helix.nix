@@ -7,6 +7,7 @@
     nil # nix
     clang clang-tools # cpp
     fish-lsp
+    rust-analyzer
     # Formatter
     alejandra # nix
   ];
