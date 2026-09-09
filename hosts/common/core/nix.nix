@@ -1,4 +1,4 @@
-{ lib, inputs, ... }:
+{ lib, inputs, pkgs,  ... }:
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -16,4 +16,8 @@
   ];
 
   programs.nh.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    nix-output-monitor
+  ];
 }
