@@ -1,6 +1,6 @@
-{ pkgs, lib, config, inputs, ... }:
+{ pkgs, ... }:
 {
-  imports = [ ../vicine.nix ];
+  imports = [ ../vicinae.nix ];
   
   programs.niri.enable = true;
   programs.niri.package = pkgs.niri-unstable;
