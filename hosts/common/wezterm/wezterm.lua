@@ -5,7 +5,12 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 config.font_size = 12
-wezterm.font("Fira Code", {weight="Medium", stretch="Normal", style="Normal"})
+config.font = wezterm.font {
+    family="Fira Code",
+    weight="Medium", stretch="Normal", style="Normal",
+    harfbuzz_features = {"ss05", "ss02", "ss09"},
+  }
+
 
 config.window_background_opacity = 0.5
 

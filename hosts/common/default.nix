@@ -26,5 +26,6 @@
     fonts.packages = with pkgs; [
         nerd-fonts.symbols-only
         fira-code
+        noto-fonts # includes fallbacks
     ];
 }
