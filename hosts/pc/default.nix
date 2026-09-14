@@ -14,6 +14,7 @@
     ./../common/wezterm/wezterm.nix
     ./../common/vscode.nix
     ./../common/direnv.nix
+    ./../common/clock.nix
   ];
 
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
