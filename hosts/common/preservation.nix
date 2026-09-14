@@ -44,6 +44,7 @@
           ".local/share/Paradox Interactive"
 
           ".local/state/noctalia"
+          ".local/state/vicinae"
 
           ".cache/spotify"
         ];
