@@ -5,6 +5,7 @@
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "spotify"
     "steam" "steam-unwrapped"
+    "muse-sounds-manager"
   ];
 
   nix.settings.substituters = [ "https://attic.xuyh0120.win/lantian" /* cachyos */ ];

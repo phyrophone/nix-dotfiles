@@ -32,6 +32,7 @@
           "Music"
 
           ".paradoxlauncher"
+          "Muse Sounds"
 
           ".config/mozilla"
           ".config/spotify"
@@ -42,6 +43,8 @@
           ".local/share/keyrings"
           ".local/share/direnv"
           ".local/share/Paradox Interactive"
+          ".local/share/muse-sounds-manager"
+          ".local/share/MuseSampler"
 
           ".local/state/noctalia"
           ".local/state/vicinae"
