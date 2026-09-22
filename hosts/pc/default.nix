@@ -17,6 +17,8 @@
     ./../common/clock.nix
   ];
 
+  environment.systemPackages = with pkgs; [ tux-manager ];
+
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
 
   users.users.root.hashedPassword = config.users.users.zephyr.hashedPassword;
