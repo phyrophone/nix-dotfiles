@@ -4,6 +4,8 @@
     ../common/default.nix
   ];
 
+  networking.hostName = "server";
+
   users.mutableUsers = false;
   users.users = {
     admin = {
@@ -17,15 +19,19 @@
       hashedPassword = "$6$64ss366iPPtaMMOJ$9Cne9W6BBzrfV9W0XoaTiIbFjmMzJ6DqguG1LrnBKgxfaT.3wTFiuZlDUb.t7y/xOMGmTTFp42GyqXK9k2/TI0";
       shell = pkgs.fish;
     };
+    local = {
+      isNormalUser = true;
+      password = "";
+      shell = pkgs.fish;
+    };
   };
-
-  networking.hostName = "server";
 
   services.openssh = {
     enable = true;
     openFirewall = true;
     settings = {
       PermitRootLogin = "no";
+      DenyUsers = [ "local" ];
     };
   };
 
