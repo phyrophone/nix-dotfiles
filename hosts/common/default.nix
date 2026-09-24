@@ -6,11 +6,13 @@
         ./core/shell.nix
         ./core/xdg-vars.nix
         ./core/git.nix
-        ../vm/default.nix
     ];
 
     boot.loader.limine.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
+
+    virtualisation.vmVariant = ../vm/default.nix;
+    virtualisation.vmVariantWithBootLoader = ../vm/default.nix;
 
     time.timeZone = "Europe/Stockholm";
     console.keyMap = "sv-latin1";
