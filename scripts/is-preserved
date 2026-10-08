@@ -2,6 +2,8 @@
 
 set location $argv[1]
 set bold $(tput bold)
+set normal $(tput sgr0)
+set non_permanent_fs tmpfs devtmpfs
 
 if not test -e $location
     echo "given location doesn't exist: $location"
@@ -10,9 +12,9 @@ end
 
 set file_system (df $location | tail -n 1 | cut -d " " -f1)
 
-echo "filesystem is: $file_system"
+echo "filesystem is:$bold $file_system$normal"
 
-if test "$file_system" = tmpfs
+if contains -- $file_system $non_permanent_fs
     echo "and is thus:$bold NOT preserved"
     exit 1
 else
