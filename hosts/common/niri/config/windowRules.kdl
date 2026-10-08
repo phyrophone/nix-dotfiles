@@ -1,6 +1,11 @@
 // ────────────── Window Rules ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 
+window-rule {
+    geometry-corner-radius 0 // Set every window radius to 20
+    clip-to-geometry true
+}
+
 window-rule { // active windows when in overview
     match is-focused=false is-active=true
     shadow {
@@ -139,11 +144,6 @@ window-rule {
     focus-ring { active-color "#ffffff39"; }
 }
 
-window-rule {
-    geometry-corner-radius 0 // Set every window radius to 20
-    clip-to-geometry true
-}
-
 layer-rule {
     match namespace="^noctalia-wallpaper"
     place-within-backdrop true
@@ -159,14 +159,3 @@ window-rule {
     default-floating-position x=0 y=0 relative-to="bottom-right"
     open-focused false
 }
-
-// window-rule {
-//     match app-id=r#"MuseScore"#
-//     match title=r#"Tux Manager"#
-//     match app-id="steam"
-
-//     popups {
-//         opacity 1.0
-//         background-effect { blur false; xray false; }
-//     }
-// }
