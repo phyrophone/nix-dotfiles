@@ -13,6 +13,10 @@
     recommendedServices.enable = true;
   };
 
+  environment.systemPackages = with pkgs; [
+    wl-clipboard
+    xwayland-satellite
+  ];
   environment.systemPackages = with pkgs; [ wl-clipboard xwayland-satellite ];
   hjem.users.zephyr.xdg = {
     config.files."niri".source = "/home/zephyr/Documents/nixos/hosts/common/niri/config";
