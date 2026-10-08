@@ -1,0 +1,21 @@
+#!/usr/bin/env fish
+
+set location $argv[1]
+set bold $(tput bold)
+
+if not test -e $location
+    echo "given location doesn't exist: $location"
+    exit 1
+end
+
+set file_system (df $location | tail -n 1 | cut -d " " -f1)
+
+echo "filesystem is: $file_system"
+
+if test "$file_system" = tmpfs
+    echo "and is thus:$bold NOT preserved"
+    exit 1
+else
+    echo "and is thus:$bold preserved"
+    exit 0
+end
