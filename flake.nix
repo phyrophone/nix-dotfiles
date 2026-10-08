@@ -16,6 +16,9 @@
 
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     # Do not override its nixpkgs input, otherwise there can be mismatch between patches and kernel version
+
+    kclock.url = "github:phyrophone/kclock";
+    kclock.flake = false;
   };
 
   outputs = inputs: {
@@ -38,6 +41,19 @@
         ];
         specialArgs = { inherit inputs; };
       };
+      iso =
+        let
+          repo-src = ./.;
+        in
+        inputs.nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma6.nix"
+            "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
+            ./hosts/iso/default.nix
+          ];
+          specialArgs = { inherit inputs repo-src; };
+        };
     };
   };
 }

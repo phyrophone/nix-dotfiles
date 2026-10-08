@@ -32,6 +32,13 @@
         };
       });
     })
+    (final: prev: {
+      kdePackages = prev.kdePackages // {
+        kclock = prev.kdePackages.kclock.overrideAttrs ({
+          src = inputs.kclock;
+        });
+      };
+    })
   ];
 
   programs.nh.enable = true;
