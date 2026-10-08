@@ -17,6 +17,8 @@
     time.timeZone = "Europe/Stockholm";
     console.keyMap = "sv-latin1";
 
+    i18n.defaultLocale = "en_DK.UTF-8";
+
     networking.networkmanager.enable = true;
 
     environment.systemPackages = with pkgs; [
