@@ -1,0 +1,36 @@
+#!/usr/bin/env fish
+# dependencies:
+# gum
+# nh
+# nix
+
+set extra_args
+if test -n "$argv[1]"
+    set -a extra_args --hostname $argv[1]
+end
+
+if gum confirm "Update inputs?"
+    echo "---updating inputs---"
+    nix flake update
+    if not gum confirm "Proceed and build?"
+        return
+    end
+end
+
+echo "---building system---"
+if not nh os build $extra_args
+    return
+end
+
+echo "---post build action---"
+set -a extra_args --diff never
+set post_build_action $(gum choose switch boot test nothing --header "Build succeded, what should be done?")
+echo $post_build_action
+switch $post_build_action
+    case switch
+        nh os switch $extra_args
+    case boot
+        nh os boot $extra_args
+    case test
+        nh os test $extra_args
+end

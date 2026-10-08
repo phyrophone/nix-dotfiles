@@ -39,5 +39,6 @@
     eza
     fzf
     zip unzip
+    gum
   ];
 }
