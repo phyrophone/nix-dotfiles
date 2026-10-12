@@ -2,6 +2,7 @@
 {
   imports = [
     ./disks.nix
+    ./hardware-configuration.nix
     
     ../common/default.nix
     ../common/sudo.nix
