@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ./disko.nix
+    ./disks.nix
     
     ../common/default.nix
     ../common/sudo.nix
