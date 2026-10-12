@@ -4,6 +4,7 @@
     ./disko.nix
     ./../common/preservation.nix
     ./hardware-configuration.nix
+    ./../common/uefi-bootloader.nix
 
     ./../common/default.nix
     ./../common/niri/niri.nix

@@ -9,8 +9,9 @@
           type = "gpt";
           partitions = {
             ESP = {
-              type = "EF00";
+              type = "EF02";
               size = "500M";
+              attribute = [ 0 ];
               content = {
                 type = "filesystem";
                 format = "vfat";

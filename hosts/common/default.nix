@@ -8,9 +8,6 @@
         ./core/git.nix
     ];
 
-    boot.loader.limine.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
-
     virtualisation.vmVariant = ../vm/default.nix;
     virtualisation.vmVariantWithBootLoader = ../vm/default.nix;
 
