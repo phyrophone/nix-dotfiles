@@ -3,6 +3,7 @@
 # gum
 # nh
 # nix
+# util-linux
 
 set extra_args
 if test -n "$argv[1]"
@@ -11,8 +12,14 @@ end
 
 if gum confirm "Update inputs?"
     echo "---updating inputs---"
-    nix flake update
-    if not gum confirm "Proceed and build?"
+    set flake_updated no
+    script -qec "nix flake update" /dev/null | while read -l line
+        echo $line
+        if string match -q "*Updated*" $line
+            set flake_updated yes
+        end
+    end
+    if not gum confirm "Proceed and build?" --default=$flake_updated
         return
     end
 end
