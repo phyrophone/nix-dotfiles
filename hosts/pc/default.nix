@@ -15,6 +15,7 @@
     ./../common/vscode.nix
     ./../common/direnv.nix
     ./../common/clock.nix
+    ./../common/sudo.nix
   ];
 
   environment.systemPackages = with pkgs; [ tux-manager ];

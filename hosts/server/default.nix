@@ -2,6 +2,7 @@
 {
   imports = [
     ../common/default.nix
+    ../common/sudo.nix
   ];
 
   networking.hostName = "server";

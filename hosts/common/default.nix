@@ -6,7 +6,6 @@
         ./core/shell.nix
         ./core/xdg-vars.nix
         ./core/git.nix
-        ./core/sudo.nix
     ];
 
     boot.loader.limine.enable = true;
