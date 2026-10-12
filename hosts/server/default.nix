@@ -8,10 +8,7 @@
     ../common/sudo.nix
   ];
 
-  boot.loader.grub = {
-    enable = true;
-    device = "/dev/disk/by-id/ata-Samsung_SSD_860_EVO_500GB_S3Z2NB1KB89180M";
-  };
+  boot.loader.grub.enable = true;
 
   networking.hostName = "server";
 
