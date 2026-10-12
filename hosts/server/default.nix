@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   imports = [
+    ./disko.nix
+    
     ../common/default.nix
     ../common/sudo.nix
   ];

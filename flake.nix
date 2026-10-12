@@ -38,6 +38,7 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/server/default.nix
+          inputs.disko.nixosModules.disko
         ];
         specialArgs = { inherit inputs; };
       };
