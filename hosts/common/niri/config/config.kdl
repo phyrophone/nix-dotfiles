@@ -59,8 +59,8 @@ include "windowRules.kdl"
         }
         gaps 20 // Gap between windows
         struts {
-            left 25
-            right 25
+            left -10
+            right -10
             top -10
             bottom -10
         }
@@ -69,7 +69,7 @@ include "windowRules.kdl"
     }
 
     overview {
-        zoom 0.4
+        zoom 0.5
     }
 
     blur {
