@@ -4,8 +4,8 @@
     ./disks.nix
     ./hardware-configuration.nix
     
-    ../common/default.nix
-    ../common/sudo.nix
+    ../../common/default.nix
+    ../../common/sudo.nix
   ];
 
   boot.loader.grub.enable = true;

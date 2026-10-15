@@ -1,9 +1,9 @@
 { pkgs, repo-src, ... }:
 {
   imports = [
-    ../common/default.nix
-    ../common/firefox.nix
-    ../common/wezterm/wezterm.nix
+    ../../common/default.nix
+    ../../common/firefox.nix
+    ../../common/wezterm/wezterm.nix
   ];
 
   networking.hostName = "iso";

@@ -10,6 +10,9 @@
 
 {
    "$schema": "https://vicinae.com/schemas/config.json",
+   "tray": {
+      "enabled": false
+   },
    "theme": {
       "dark": {
          "name": "nord-light",
@@ -17,6 +20,21 @@
       }
    },
    "launcher_window": {
-      "opacity": 0.5
+      "opacity": 0.5,
+      "client_side_decorations": {
+         "enabled": false
+      },
+      "floating_status_bar": true
+   },
+   "providers": {
+      "snippets": {
+         "preferences": {
+            "enabled": true,
+            "keyDelay": "2",
+            "layout": "",
+            "prePasteDelay": "0",
+            "undo": true
+         }
+      }
    }
 }

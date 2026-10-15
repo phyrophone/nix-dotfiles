@@ -2,21 +2,21 @@
 {
   imports = [
     ./disko.nix
-    ./../common/preservation.nix
+    ../../common/preservation.nix
     ./hardware-configuration.nix
-    ./../common/uefi-bootloader.nix
+    ../../common/uefi-bootloader.nix
 
-    ./../common/default.nix
-    ./../common/niri/niri.nix
-    ./../common/firefox.nix
-    ./../common/entertainment/games.nix
-    ./../common/entertainment/vesktop.nix
-    ./../common/entertainment/music.nix
-    ./../common/wezterm/wezterm.nix
-    ./../common/vscode.nix
-    ./../common/direnv.nix
-    ./../common/clock.nix
-    ./../common/sudo.nix
+    ../../common/default.nix
+    ../../common/niri/niri.nix
+    ../../common/firefox.nix
+    ../../common/entertainment/games.nix
+    ../../common/entertainment/vesktop.nix
+    ../../common/entertainment/music.nix
+    ../../common/wezterm/wezterm.nix
+    ../../common/vscode.nix
+    ../../common/direnv.nix
+    ../../common/clock.nix
+    ../../common/sudo.nix
   ];
 
   environment.systemPackages = with pkgs; [ tux-manager ];
