@@ -40,5 +40,6 @@
     fzf
     zip unzip
     gum
+    jq
   ];
 }

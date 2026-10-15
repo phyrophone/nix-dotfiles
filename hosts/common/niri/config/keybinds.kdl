@@ -127,7 +127,8 @@ binds {
     // rearrange workspaces
     MOD+PAGE_DOWN                 repeat=false { move-workspace-down; }
     MOD+PAGE_UP                   repeat=false { move-workspace-up; }
-    MOD+INSERT                    repeat=false { spawn-sh "~/.config/niri/scripts/insertWorkspace.sh"; }
+    MOD+INSERT                    repeat=false { spawn-sh "~/.config/niri/scripts/insertWorkspace"; }
+    MOD+SHIFT+INSERT              repeat=false { spawn-sh "~/.config/niri/scripts/insertWorkspace down"; }
 
     // move window to other workspace
     MOD+CTRL+1                          { move-column-to-workspace 1; }

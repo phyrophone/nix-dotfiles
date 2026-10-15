@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# based on: https://github.com/niri-wm/niri/discussions/2769#discussioncomment-14926252
+
+info=$(niri msg -j workspaces)
+last_idx=$(jq 'length' <<< "$info")
+focused_idx=$(jq '.[] | select(.is_focused == true)' <<< "$info" | jq .idx)
+
+case "$1" in 
+	down)target_idx=$((focused_idx + 1));;
+	*)target_idx=$focused_idx;;
+esac
+
+niri msg action set-workspace-name _tempws --workspace "$last_idx"
+niri msg action move-workspace-to-index "$target_idx" --reference _tempws
+niri msg action focus-workspace _tempws
+niri msg action unset-workspace-name _tempws
