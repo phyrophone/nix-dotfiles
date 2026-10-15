@@ -8,6 +8,7 @@
     clang clang-tools # cpp
     fish-lsp
     rust-analyzer
+    bash-language-server
     # Formatter
     alejandra # nix
   ];
