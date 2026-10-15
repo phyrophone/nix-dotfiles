@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  environment.sessionVariables.WEZTERM_CONFIG_FILE = "/home/zephyr/Documents/nixos/hosts/common/wezterm/wezterm.lua";
+  environment.sessionVariables.WEZTERM_CONFIG_FILE = "/home/zephyr/Documents/nixos/common/wezterm/wezterm.lua";
   environment.systemPackages = [ pkgs.wezterm ];
   environment.shellAliases = {
     window="wezterm start --cwd . 2>/dev/null";

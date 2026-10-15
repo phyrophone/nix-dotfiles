@@ -21,5 +21,5 @@
     xwayland-satellite
   ];
   hjem.users.zephyr.xdg.config.files."niri".source =
-    "/home/zephyr/Documents/nixos/hosts/common/niri/config";
+    "/home/zephyr/Documents/nixos/common/niri/config";
 }
