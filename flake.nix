@@ -16,6 +16,9 @@
 
     kclock.url = "github:phyrophone/kclock";
     kclock.flake = false;
+
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: {
@@ -28,6 +31,7 @@
           inputs.preservation.nixosModules.default
           inputs.hjem.nixosModules.default
           inputs.niri.nixosModules.niri
+          inputs.nix-index-database.nixosModules.default
         ];
         specialArgs = { inherit inputs; };
       };
