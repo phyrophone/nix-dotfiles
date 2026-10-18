@@ -6,14 +6,14 @@
     "spotify"
     "steam" "steam-unwrapped"
     "muse-sounds-manager"
+    "nvidia-x11" "nvidia-settings" "nvidia-kernel-modules"
   ];
 
-  nix.settings.substituters = [ "https://attic.xuyh0120.win/lantian" /* cachyos */ ];
-  nix.settings.trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" /* cachyos */ ];
+  nix.settings.substituters = [ ];
+  nix.settings.trusted-public-keys = [ ];
   
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
-    inputs.nix-cachyos-kernel.overlays.pinned
     (final: prev: {
       xwayland-satellite = prev.xwayland-satellite.overrideAttrs (old: rec {
         version = "0.8.1";

@@ -14,9 +14,6 @@
 
     niri.url = "github:epireyn/niri-flake";
 
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
-    # Do not override its nixpkgs input, otherwise there can be mismatch between patches and kernel version
-
     kclock.url = "github:phyrophone/kclock";
     kclock.flake = false;
   };
